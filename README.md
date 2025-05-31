@@ -1,7 +1,7 @@
 # Book Management CLI Application
 
 Diagram link - https://dbdiagram.io/d/68345e5b6980ade2eb6a35c3
-video - 
+video - https://firebasestorage.googleapis.com/v0/b/eschool-96a1a.firebasestorage.app/o/README.md%20-%20cli%20project%20-%20Visual%20Studio%20Code%202025-05-31%2015-59-06.mp4?alt=media&token=1b30f1a2-3282-4754-ba65-8b3e49faa77a
 
 **Author:** Kelvin Ndunda
 
