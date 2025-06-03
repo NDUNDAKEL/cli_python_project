@@ -26,7 +26,50 @@ def list_users():
         print("No users found.")
         return
     print(tabulate([(u.id, u.username, u.email) for u in users], headers=["ID", "Username", "Email"]))
-    
+def update_user(user_id, new_username=None, new_email=None):
+    session = SessionLocal()
+    user = session.query(User).get(user_id)
+    if not user:
+        print(f"No user found with ID {user_id}.")
+        session.close()
+        return
+
+    if new_username:
+        user.username = new_username
+    if new_email:
+        user.email = new_email
+
+    session.commit()
+    print(f"Updated user: {user}")
+    session.close()
+def delete_book(book_id):
+    session = SessionLocal()
+    book = session.query(Book).get(book_id)
+    if not book:
+        print(f"No book found with ID {book_id}.")
+        session.close()
+        return
+    session.delete(book)
+    session.commit()
+    print(f"Deleted book with ID {book_id}.")
+    session.close()
+def update_book(book_id, new_title=None, new_author=None):
+    session = SessionLocal()
+    book = session.query(Book).get(book_id)
+    if not book:
+        print(f"No book found with ID {book_id}.")
+        session.close()
+        return
+
+    if new_title:
+        book.title = new_title
+    if new_author:
+        book.author = new_author
+
+    session.commit()
+    print(f"Updated book: {book}")
+    session.close()
+
 def delete_user(user_id):
     session = SessionLocal()
     user = session.query(User).get(user_id)

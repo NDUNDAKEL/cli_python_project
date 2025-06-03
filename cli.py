@@ -8,8 +8,12 @@ from lib.helpers import (
     list_reviews,
     exit_program,
     invalid_choice,
-    delete_user
+    delete_user,
+    delete_book,
+    update_user,
+    update_book
 )
+
 
 def main_menu():
     print("\n=== Book Management CLI ===")
@@ -20,6 +24,9 @@ def main_menu():
     print("5. Create Review")
     print("6. List Reviews")
     print("7. Delete User")
+    print("8. Update User")
+    print("9. Delete Book")
+    print("10. Update Book")
     print("0. Exit")
 
 def main():
@@ -58,6 +65,30 @@ def main():
                 delete_user(user_id)
             except ValueError:
                 print("Invalid input. User ID must be an integer.")
+        elif choice == "8":
+            try:
+                user_id = int(input("User ID to update: ").strip())
+                new_username = input("New username (leave blank to keep current): ").strip()
+                new_email = input("New email (leave blank to keep current): ").strip()
+                update_user(user_id, new_username or None, new_email or None)
+            except ValueError:
+                print("Invalid input. User ID must be an integer.")
+
+        elif choice == "9":
+            try:
+                book_id = int(input("Enter Book ID to delete: ").strip())
+                delete_book(book_id)
+            except ValueError:
+                print("Invalid input. Book ID must be an integer.")
+
+        elif choice == "10":
+            try:
+                book_id = int(input("Book ID to update: ").strip())
+                new_title = input("New title (leave blank to keep current): ").strip()
+                new_author = input("New author (leave blank to keep current): ").strip()
+                update_book(book_id, new_title or None, new_author or None)
+            except ValueError:
+                print("Invalid input. Book ID must be an integer.")
         elif choice == "0":
             exit_program()
         else:
